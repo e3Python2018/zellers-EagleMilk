@@ -23,7 +23,7 @@ B = input("What was day of your birth?")
 C = input("What year were you born?")
 if A == "January" or A == "january" or A == "Jan" or A == "jan":
     C = C - 1
-elif A == "January" or A == "january" or A == "Jan" or A == "jan":
+elif A == "February" or A == "february" or A == "Feb" or A == "feb":
     C = C - 1
 if C > 99:
     D = C / 100
@@ -33,19 +33,6 @@ X = C / 4
 Y = D / 4
 Z = W + X + Y + B + C - 2 * D
 R = Z % 7
-if R == 0:
-    Day = "Sunday"
-if R == 1:
-    Day = "Monday"
-if R == 2:
-    Day = "Tuesday"
-if R == 3:
-    Day = "Wednesday"
-if R == 4:
-    Day = "Thursday"
-if R == 5:
-    Day = "Friday"
-if R == 6:
-    Day = "Saturday"
-# Run some test cases- try today's date, your birth date, and whatever else interests you!
-print Day
+Wdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday", "Saturday"]
+print Wdays[R]
+
