@@ -21,9 +21,9 @@ if type(month) == str:
             A = months_ABBR.index(month) + 1
 B = input("What was day of your birth?")
 C = input("What year were you born?")
-if A == "January" or A == "january" or A == "Jan" or A == "jan":
+if A == 11:
     C = C - 1
-elif A == "February" or A == "february" or A == "Feb" or A == "feb":
+elif A == 12:
     C = C - 1
 if C > 99:
     D = C / 100
