@@ -1,35 +1,51 @@
-# Zeller's algorithm computes the day of the week on which a given date will fall (or fell).
-# In this exercise, you will write a program to run Zeller's algorithm on a specific date.
-# The program should use the algorithm outlined below to compute the day of the week on which the
-# user's birthday fell in the year you were born and print the result to the screen.
-
-# Get the user's birthday.
-
-# 1) Ask the user for the month of his birth as a number, store it in a temporary variable
-
-# 2) Set A to the month using the following conversion, with March having the value 1, April the
-# value 2, . . ., December the value 10, and January and February being
-# counted as months 11 and 12 of the preceding year (in which
-# case,subtract 1 from C)
-
-# 3) Ask the user for the day of his birth, store it in variable B
-
-# 4) Ask the user for the year of his birth, store it in variable C
-# remember to subtract 1 as necessary
-
-# 5) If C is greater than 99, then set D (the century) equal to C / 100 (hint: use integer division)
-# Then set C equal to the year of the century (0-99) (hint: use modulo)
-
-# 6) Implement Zeller's algorithm
-# W = (13*A - 1) / 5
-# X = C / 4
-# Y = D / 4
-# Z = W + X + Y + B + C - 2*D
-# R = the remainder when Z is divided by 7
-
-# 7) The value of R is the day of the week, where 0 represents Sunday, 1 is Monday, . . ., 6 is Saturday. If
-# the computed value of R is a negative number, add 7 to get a non negative number between 0 and 6 (you
-# don't need to do this in the code). Print out R. You can check to be sure your code is working by looking at
-# http://www.timeanddate.com/calendar/.
-
+month = raw_input("What is the month of your birth?")
+numbers = ["1","2","3","4","5","6","7","8","9","10","11","12"]
+months = ["MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER", "JANUARY",
+          "FEBRUARY"]
+months_ABBR = ["MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC", "JAN", "FEB"]
+if month in numbers:
+    month = int(numbers.index(month) + 1)
+if type(month) == int:
+    A = (month + 9) % 12 + 1
+if type(month) == str:
+    month = month.upper()
+    if month in months:
+        if month not in months:
+            exit(404)
+        else:
+            A = months.index(month) + 1
+    else:
+        if month not in months_ABBR:
+            exit(404)
+        else:
+            A = months_ABBR.index(month) + 1
+B = input("What was day of your birth?")
+C = input("What year were you born?")
+if A == "January" or A == "january" or A == "Jan" or A == "jan":
+    C = C - 1
+elif A == "January" or A == "january" or A == "Jan" or A == "jan":
+    C = C - 1
+if C > 99:
+    D = C / 100
+    C = C % 100
+W = (13 * A - 1) / 5
+X = C / 4
+Y = D / 4
+Z = W + X + Y + B + C - 2 * D
+R = Z % 7
+if R == 0:
+    Day = "Sunday"
+if R == 1:
+    Day = "Monday"
+if R == 2:
+    Day = "Tuesday"
+if R == 3:
+    Day = "Wednesday"
+if R == 4:
+    Day = "Thursday"
+if R == 5:
+    Day = "Friday"
+if R == 6:
+    Day = "Saturday"
 # Run some test cases- try today's date, your birth date, and whatever else interests you!
+print Day
