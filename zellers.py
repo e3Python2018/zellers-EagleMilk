@@ -6,7 +6,6 @@ months = ["MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOB
 months_ABBR = ["MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC", "JAN", "FEB"]
 if month in numbers:
     month = int(numbers.index(month) + 1)
-if type(month) == int:
     A = (month + 9) % 12 + 1
 if type(month) == str:
     month = month.upper()
@@ -34,4 +33,3 @@ Z = W + X + Y + B + C - 2 * D
 R = Z % 7
 Wdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 print Wdays[R]
-
