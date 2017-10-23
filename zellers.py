@@ -1,4 +1,5 @@
-month = raw_input("What is the month of your birth?")
+print "This program will allow you to find the week day of any date you want!"
+month = raw_input("Choose a month: ")
 numbers = ["1","2","3","4","5","6","7","8","9","10","11","12"]
 months = ["MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER", "JANUARY",
           "FEBRUARY"]
@@ -19,12 +20,11 @@ if type(month) == str:
             exit(404)
         else:
             A = months_ABBR.index(month) + 1
-B = input("What was day of your birth?")
-C = input("What year were you born?")
-if A == 11:
+B = input("Choose a day: ")
+C = input("Choose a Year: ")
+if A == 11 or 12:
     C = C - 1
-elif A == 12:
-    C = C - 1
+
 if C > 99:
     D = C / 100
     C = C % 100
